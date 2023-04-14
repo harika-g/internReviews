@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "bootstrap5",
-    "fontawesome_5"
-    # 'internReviews.apps.UserConfig'
+    "fontawesome_5",
+
+    # our apps
+    'post.apps.PostConfig'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'internReviews.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / "templates", BASE_DIR / "post" / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
