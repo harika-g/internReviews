@@ -18,9 +18,9 @@
                 <div class="card card-body">
                     <ul class="list-group list-group-light">
                         <li class="list-group-item px-3">{{ p.semester }} {{ p.year }}</li>
-                        <li class="list-group-item px-3">Salary: {{p.salary}}K $</li>
+                        <li class="list-group-item px-3">Salary: {% if p.salary %} $ {{p.salary}}/hr {% else %} - {% endif %} </li>
                         <li class="list-group-item px-3">Duration: {{p.duration}} months</li>
-                        <li class="list-group-item px-3">Industry: {{p.industry}}</li>
+                        <li class="list-group-item px-3">Industry: {{p.industry|default_if_none:"-"}}</li>
                         <li class="list-group-item px-3">Review: {{p.review}}</li>
                         <li class="list-group-item px-3">Rating: {{p.rating}} / 5</li>
                         <!-- <label for="disabledRange" class="form-label">Rating: {{p.rating}} / 5</label>
