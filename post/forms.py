@@ -12,7 +12,8 @@ def year_choices():
 
 
 class PostForm(forms.ModelForm):
-    semester = forms.ModelChoiceField(queryset=Semester.objects.all())
+    semester = forms.ModelChoiceField(
+        queryset=Semester.objects.all(), to_field_name='semester')
     review = forms.CharField(widget=forms.Textarea)
     rating = forms.ChoiceField(
         choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5)))
