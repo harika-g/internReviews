@@ -69,7 +69,9 @@ def delete_post(request, id):
 def my_posts(request):
     posts = Post.objects.filter(email=request.user.email).order_by(
         'modified_date').reverse()
+    filters = PostFilter(request.GET, queryset=posts)
     context = {
         'posts': posts,
+        'filter': filters
     }
     return render(request, 'post/list.html', context)
