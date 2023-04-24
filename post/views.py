@@ -7,7 +7,7 @@ from django.contrib import messages
 def list_posts(request):
     posts = Post.objects.all().order_by('modified_date').reverse()
     context = {
-        'posts': posts,
+        'posts': posts
     }
     return render(request, 'post/list.html', context)
 
@@ -56,9 +56,11 @@ def edit_post(request, id):
     return render(request, 'post/update.html', {'form': post_form})
 
 
-def delete_post(request, pk):
-
-    return render(request, 'post/delete.html', context)
+def delete_post(request, id):
+    prev_url = request.META.get('HTTP_REFERER')
+    post_to_del = Post.objects.get(id=id)
+    post_to_del.delete()
+    return redirect(prev_url)
 
 
 def my_posts(request):

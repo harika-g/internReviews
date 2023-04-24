@@ -4,8 +4,11 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegistrationForm
 
+
 def home(request):
-    return render(request, 'registration/home.html')
+    # return render(request, 'registration/home.html')
+    return redirect('list_posts')
+
 
 def register(request):
     if request.method == 'POST':
@@ -13,7 +16,8 @@ def register(request):
         if form.is_valid():
             form.save()
 
-            messages.success(request, f'Your account has been created. You can log in now!')    
+            messages.success(
+                request, f'Your account has been created. You can log in now!')
             return redirect('login')
     else:
         form = UserRegistrationForm()
