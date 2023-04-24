@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
+from .filters import PostFilter
 
 
 def list_posts(request):
     posts = Post.objects.all().order_by('modified_date').reverse()
+    filters = PostFilter(request.GET, queryset=posts)
     context = {
-        'posts': posts
+        'posts': posts,
+        'filter': filters
     }
     return render(request, 'post/list.html', context)
 

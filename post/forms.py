@@ -29,4 +29,4 @@ class PostForm(forms.ModelForm):
                   'company', 'role', 'industry',
                   'duration',
                   'semester', 'year', 'salary',
-                  'industry', 'review', 'rating']
+                  'review', 'rating']
