@@ -46,7 +46,8 @@ def edit_post(request, id):
         'year': selected_post.year,
         'salary': selected_post.salary,
         'industry': selected_post.industry,
-        'email': selected_post.email
+        'email': selected_post.email,
+        'show_email': selected_post.show_email
     })
     print(selected_post.semester)
     if request.method == "POST":

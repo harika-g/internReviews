@@ -21,6 +21,7 @@ class PostForm(forms.ModelForm):
     duration = forms.IntegerField(help_text="months")
     year = forms.TypedChoiceField(
         coerce=int, choices=year_choices, initial=current_year)
+    salary = forms.IntegerField(help_text="/hour")
 
     class Meta:
         model = Post
@@ -29,4 +30,5 @@ class PostForm(forms.ModelForm):
                   'company', 'role', 'industry',
                   'duration',
                   'semester', 'year', 'salary',
-                  'review', 'rating']
+                  'review', 'rating', 'show_email']
+        labels = {"show_email": "Allow user to see your email address?"}

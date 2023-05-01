@@ -27,6 +27,7 @@ class Post(models.Model):
     email = models.EmailField(help_text='Enter your Texas A&M email')
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    show_email = models.BooleanField()
 
     def __str__(self):
         return self.title

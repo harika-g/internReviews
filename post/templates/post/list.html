@@ -95,6 +95,12 @@
             </li>
             <li class="list-group-item px-3">Review: {{p.review}}</li>
             <li class="list-group-item px-3">Rating: {{p.rating}} / 5</li>
+            {% if p.show_email%}
+            <li class="list-group-item px-3">
+              Contact: <a href="mailto:{{p.email}}">{{p.email}}</a>
+            </li>
+            {% endif %}
+
             <!-- <label for="disabledRange" class="form-label">Rating: {{p.rating}} / 5</label>
                         <input type="range" class="form-range" id="disabledRange" disabled> -->
             <!-- <li class="list-group-item px-3">Rating {{p.rating}}</li> -->
