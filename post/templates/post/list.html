@@ -93,7 +93,9 @@
             <li class="list-group-item px-3">
               Industry: {{p.industry|default_if_none:"-"}}
             </li>
-            <li class="list-group-item px-3">Review: {{p.review}}</li>
+            <li class="list-group-item px-3">
+              Review: {{p.review|linebreaks }}
+            </li>
             <li class="list-group-item px-3">Rating: {{p.rating}} / 5</li>
             {% if p.show_email%}
             <li class="list-group-item px-3">

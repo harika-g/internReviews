@@ -1,10 +1,9 @@
-{% block content %}
+{% block content %} {% load bootstrap5 %} {% bootstrap_css %}
+{%bootstrap_javascript %}
 <br />
-<div class="alert alert-success" role="alert">
-  <h2 style="text-align: center">Logged out!</h2>
+<div class="alert alert-success text-center" role="alert">
+  <h3>Logged out!</h3>
+  <a href="{% url 'register' %}">Signup</a>
+  <a href="{% url 'login' %}">Login Again</a>
 </div>
-<h3>You are logged out!</h3>
-<h3>Login again?</h3>
-<a href="{% url 'login' %}">---> Login</a> <br />
-<a href="{% url 'register' %}">--- Or Create another account</a>
 {% endblock content %}
