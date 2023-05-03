@@ -27,15 +27,15 @@
           type="button"
           class="btn btn-info"
           href="{% url 'edit_post' id=p.id %}"
-          >Update</a
-        >
+          ><i class="fas fa-pencil-alt"></i
+        ></a>
         <button
           type="button"
           class="btn btn-danger"
           data-bs-toggle="modal"
           data-bs-target="#deleteModal"
         >
-          Delete
+          <i class="fas fa-trash"></i>
         </button>
 
         <!-- Modal -->
@@ -83,23 +83,45 @@
       <div id="collapseExample" class="collapse show">
         <div class="card card-body">
           <ul class="list-group list-group-light">
-            <li class="list-group-item px-3">{{ p.semester }} {{ p.year }}</li>
             <li class="list-group-item px-3">
-              Salary: {% if p.salary %} $ {{p.salary}}/hr {% else %} - {%endif%}
+              <i>{{ p.semester }} {{ p.year }}</i>
             </li>
             <li class="list-group-item px-3">
-              Duration: {{p.duration}} months
+              <b>Salary</b>: {% if p.salary %} $ {{p.salary}}/hr {% else %} -
+              {%endif%}
             </li>
             <li class="list-group-item px-3">
-              Industry: {{p.industry|default_if_none:"-"}}
+              <b>Duration</b>: {{p.duration}} months
             </li>
             <li class="list-group-item px-3">
-              Review: {{p.review|linebreaks }}
+              <b>Industry</b>: {{p.industry|default_if_none:"-"}}
             </li>
-            <li class="list-group-item px-3">Rating: {{p.rating}} / 5</li>
+            <li class="list-group-item px-3">
+              <b>Review</b>:
+              <br />
+              {{p.review|linebreaks }}
+            </li>
+            <li class="list-group-item px-3">
+              <b>Rating</b>:
+              <span
+                class="fa fa-star {% if p.rating > 0 %} yellow-star {% endif %}"
+              ></span>
+              <span
+                class="fa fa-star {% if p.rating > 1 %} yellow-star {% endif %}"
+              ></span>
+              <span
+                class="fa fa-star {% if p.rating > 2 %} yellow-star {% endif %}"
+              ></span>
+              <span
+                class="fa fa-star {% if p.rating > 3 %} yellow-star {% endif %}"
+              ></span>
+              <span
+                class="fa fa-star {% if p.rating > 4 %} yellow-star {% endif %}"
+              ></span>
+            </li>
             {% if p.show_email%}
             <li class="list-group-item px-3">
-              Contact: <a href="mailto:{{p.email}}">{{p.email}}</a>
+              <b>Contact</b>: <a href="mailto:{{p.email}}">{{p.email}}</a>
             </li>
             {% endif %}
 
